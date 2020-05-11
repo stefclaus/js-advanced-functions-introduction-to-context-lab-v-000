@@ -49,5 +49,40 @@ let createTimeOutEvent = function(employee, exampleTime) {
 
 
 let hoursWorkedOnDate = function(employee, date) {
+  let inEvent = employee.timeInEvents.find(function(e){
+     return e.date === date
+ })
+
+ let outEvent = employee.timeOutEvents.find(function(e){
+    return e.date === date
+})
+
+  let hoursWorked = (outEvent.hour - inEvent.hour) / 100
+
+  return hoursWorked
+}
+
+let wagesEarnedOnDate = function(employee, date) {
+  let hours = hoursWorkedOnDate(employee, date)
+  let employeePay =  employee.payPerHour
+  let wageDay = hours * employeePay
+  return wageDay
+}
+
+let allWagesFor = function(employee) {
+
+
+}
+
+let calculatePayroll = function(employees) {
   
+}
+
+
+
+let findEmployeeByFirstName = function(employeeArray, firstname) {
+  let record = employeeArray.find(function(e){
+     return e.firstName === firstname
+ })
+ return record
 }
